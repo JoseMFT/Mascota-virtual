@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5860883556049058491}
   - component: {fileID: 6418804785758535359}
   m_Layer: 0
-  m_Name: Peach slice
+  m_Name: Peach slice - Copy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
