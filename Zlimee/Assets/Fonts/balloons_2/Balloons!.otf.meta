@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ace5d565f42d23347b9ec8359e215b00
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Balloons!
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 66875f3a7b7a5a1499e7ab978ab1d05c, type: 3}
+  - {fileID: 12800000, guid: a56f8839f0b888445a3ae5e7480cc174, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
