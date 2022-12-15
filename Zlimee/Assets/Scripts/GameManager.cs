@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameManager: MonoBehaviour {
     // Start is called before the first frame update
-    public int puntos = 75;
+    public int lovePoints;
+    public float lastConnection;
 
-    public void ClickedPlay () {
-        SceneManager.LoadScene (2);
+    [SerializeField]
+    GameObject ajustes;
+
+    private void Awake () {
+        lovePoints = PlayerPrefs.GetInt ("puntos", 75);
+        lastConnection = PlayerPrefs.GetFloat ("ultimaConexion");
+        Debug.Log (lastConnection);
+
     }
-    public void ClickedFeed () {
-        SceneManager.LoadScene (1);
-    }
+
 }
