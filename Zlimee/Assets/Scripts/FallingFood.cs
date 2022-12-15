@@ -12,6 +12,7 @@ public class FallingFood: MonoBehaviour {
 
     float spawnComida = 6.25f, spawnBasura = 7.33f;
     public int posArray;
+    public Vector3 spawnPoint;
     //arrayComida[posArray];
 
     [SerializeField]
@@ -55,37 +56,44 @@ public class FallingFood: MonoBehaviour {
         switch (nuevaComida) {
 
             case Comida.donut:
-                Instantiate (comidaDonut, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (comidaDonut, spawnPoint, Quaternion.identity);
                 nuevaComida = Comida.none;
                 break;
 
             case Comida.pimiento:
-                Instantiate (comidaPimiento, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (comidaPimiento, spawnPoint, Quaternion.identity);
                 nuevaComida = Comida.none;
                 break;
 
             case Comida.soda:
-                Instantiate (comidaSoda, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (comidaSoda, spawnPoint, Quaternion.identity);
                 nuevaComida = Comida.none;
                 break;
 
             case Comida.curry:
-                Instantiate (comidaCurry, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (comidaCurry, spawnPoint, Quaternion.identity);
                 nuevaComida = Comida.none;
                 break;
 
             case Comida.piruleta:
-                Instantiate (comidaPiruleta, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (comidaPiruleta, spawnPoint, Quaternion.identity);
                 nuevaComida = Comida.none;
                 break;
 
             case Comida.tomate:
-                Instantiate (comidaTomate, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (comidaTomate, spawnPoint, Quaternion.identity);
                 nuevaComida = Comida.none;
                 break;
 
             case Comida.udon:
-                Instantiate (comidaUdon, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (comidaUdon, spawnPoint, Quaternion.identity);
                 nuevaComida = Comida.none;
                 break;
 
@@ -96,37 +104,44 @@ public class FallingFood: MonoBehaviour {
         switch (nuevaBasura) {
 
             case Basura.rosa:
-                Instantiate (coheteRosa, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (coheteRosa, spawnPoint, Quaternion.identity);
                 nuevaBasura = Basura.none;
                 break;
 
             case Basura.verde:
-                Instantiate (coheteVerde, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (coheteVerde, spawnPoint, Quaternion.identity);
                 nuevaBasura = Basura.none;
                 break;
 
             case Basura.azul:
-                Instantiate (coheteAzul, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (coheteAzul, spawnPoint, Quaternion.identity);
                 nuevaBasura = Basura.none;
                 break;
 
             case Basura.gris:
-                Instantiate (coheteGris, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (coheteGris, spawnPoint, Quaternion.identity);
                 nuevaBasura = Basura.none;
                 break;
 
             case Basura.amarillo:
-                Instantiate (coheteAmarillo, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (coheteAmarillo, spawnPoint, Quaternion.identity);
                 nuevaBasura = Basura.none;
                 break;
 
             case Basura.naranja:
-                Instantiate (coheteNaranja, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (coheteNaranja, spawnPoint, Quaternion.identity);
                 nuevaBasura = Basura.none;
                 break;
 
             case Basura.rojo:
-                Instantiate (coheteRojo, new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f), Quaternion.identity);
+                Randomizer ();
+                Instantiate (coheteRojo, spawnPoint, Quaternion.identity);
                 nuevaBasura = Basura.none;
                 break;
 
@@ -142,5 +157,7 @@ public class FallingFood: MonoBehaviour {
 
     void Randomizer () {
         posArray = (int) Mathf.Floor (Random.Range (0, 6));
+        spawnPoint = new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f);
+
     }
 }
