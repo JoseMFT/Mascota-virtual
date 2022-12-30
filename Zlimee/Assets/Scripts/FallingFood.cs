@@ -158,6 +158,5 @@ public class FallingFood: MonoBehaviour {
     void Randomizer () {
         posArray = (int) Mathf.Floor (Random.Range (0, 6));
         spawnPoint = new Vector3 (Random.Range (-2.7f, 2.7f), 6f, 0f);
-
     }
 }

@@ -9,16 +9,13 @@ public class Hunger: MonoBehaviour {
     string hourHunger;
     int pointsGiven = 0, pointsTaken = 0, tiempoPruebaHambre = 1;
 
-    [SerializeField]
-    GameManager controlador;
-
     public int pointsLove;
 
     public GameObject mascota;
 
     // Start is called before the first frame update
     void Start () {
-        pointsLove = controlador.lovePoints;
+        //pointsLove = controlador.lovePoints;
         currentTime = DateTime.Now;
         hourHunger = currentTime.AddSeconds (tiempoPruebaHambre).ToString ();
         nextHunger = DateTime.Parse (hourHunger);
@@ -28,9 +25,11 @@ public class Hunger: MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
+        pointsLove = GameManager.controlador.lovePoints;
+
         if (IsHungry ()) {
             if (nextLoseLove < currentTime) {
-                Debug.Log ("Tengo hambre");
+                //Debug.Log ("Tengo hambre");
                 if (pointsTaken < 50) {
                     pointsLove--;
                     pointsTaken++;
