@@ -70,6 +70,7 @@ public class GameManager: MonoBehaviour {
             skinJunior.SetActive (false);
 
             if (animating == false) {
+                animating = true;
                 AnimationSlime ();
             }
             skinBebe.SetActive (true); 
@@ -80,6 +81,7 @@ public class GameManager: MonoBehaviour {
             skinSenior.SetActive (false);
 
             if (animating == false) {
+                animating = true;
                 AnimationSlime ();
             }
             skinJunior.SetActive (true);
@@ -89,6 +91,7 @@ public class GameManager: MonoBehaviour {
             skinJunior.SetActive (false);
 
             if (animating == false) {
+                animating = true;
                 AnimationSlime ();
             }
             skinSenior.SetActive (true);
@@ -98,6 +101,7 @@ public class GameManager: MonoBehaviour {
             skinSenior.SetActive (false);
 
             if (animating == false) {
+                animating = true;
                 AnimationSlime ();
             }
             skinQueen.SetActive (true);
@@ -156,7 +160,6 @@ public class GameManager: MonoBehaviour {
     }
 
     public void AnimationSlime () {
-        animating = true;
         ogSize = emptySlime.transform.localScale;
         LeanTween.scale (emptySlime, new Vector3 (.1f, .1f, ogSize.z), .25f).setEaseInCubic ().setOnComplete (() => {
             LeanTween.scale (emptySlime, ogSize, .25f).setEaseOutCubic ().setOnComplete (() => {
