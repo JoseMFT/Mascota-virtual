@@ -158,7 +158,7 @@ public class GameManager: MonoBehaviour {
     public void AnimationSlime () {
         animating = true;
         ogSize = emptySlime.transform.localScale;
-        LeanTween.scale (emptySlime, new Vector3 (.1f, .1f, .1f), .25f).setEaseInCubic ().setOnComplete (() => {
+        LeanTween.scale (emptySlime, new Vector3 (.1f, .1f, ogSize.z), .25f).setEaseInCubic ().setOnComplete (() => {
             LeanTween.scale (emptySlime, ogSize, .25f).setEaseOutCubic ().setOnComplete (() => {
                 animating = false;
             });
