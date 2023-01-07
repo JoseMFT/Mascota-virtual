@@ -6,7 +6,7 @@ using System;
 using TMPro;
 
 public class GameManager: MonoBehaviour {
-    // Start is called before the first frame update
+    
     public int lovePoints;
     public float lastConnection;
     DateTime currentTime, nextHunger, nextLoseLove;
@@ -26,6 +26,7 @@ public class GameManager: MonoBehaviour {
 
     private void Awake () {
         ogSize = emptySlime.transform.localScale;
+        animating = true;
         skinBebe.SetActive (false);
         skinJunior.SetActive (false);
         skinSenior.SetActive (false);
@@ -161,11 +162,10 @@ public class GameManager: MonoBehaviour {
 
     public void AnimationSlime () {
         ogSize = emptySlime.transform.localScale;
-        LeanTween.scale (emptySlime, new Vector3 (.1f, .1f, ogSize.z), .25f).setEaseInCubic ().setOnComplete (() => {
+        LeanTween.scale (emptySlime, new Vector3 (0f, 0f, 0f), .25f).setEaseInCubic().setOnComplete (() => {
             LeanTween.scale (emptySlime, ogSize, .25f).setEaseOutCubic ().setOnComplete (() => {
                 animating = false;
             });
-        });
-        
+        });        
     }
 }
