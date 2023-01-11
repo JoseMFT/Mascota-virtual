@@ -11,7 +11,7 @@ public class GameManager: MonoBehaviour {
     public float lastConnection;
     DateTime currentTime, nextHunger, nextLoseLove;
     string hourHunger;
-    int pointsGiven = 0, pointsTaken = 0, tiempoPruebaHambre = 1;
+    int pointsGiven = 0, pointsTaken = 0, tiempoHambre = 3600, tiempoPerdidaAmor = 1200;
     Vector3 ogSize;
 
     bool animating = false;
@@ -19,7 +19,7 @@ public class GameManager: MonoBehaviour {
     public static GameManager controlador;
 
     [SerializeField]
-    GameObject ajustes, skinBebe, skinJunior, skinSenior, skinQueen, emptySlime;
+    GameObject ajustes, skinBebe, skinJunior, skinSenior, skinQueen, emptySlime, fxTransform;
 
     [SerializeField]
     TextMeshProUGUI puntos;
@@ -27,7 +27,7 @@ public class GameManager: MonoBehaviour {
     private void Awake () {
         ogSize = emptySlime.transform.localScale;
         animating = true;
-        skinBebe.SetActive (false);
+        skinBebe.SetActive (true);
         skinJunior.SetActive (false);
         skinSenior.SetActive (false);
         skinQueen.SetActive (false);
@@ -47,14 +47,14 @@ public class GameManager: MonoBehaviour {
     void Update () {
 
         if (IsHungry ()) {
-            if (nextLoseLove < currentTime) {
-                //Debug.Log ("Tengo hambre");
-                if (pointsTaken < 50) {
+            if (pointsGiven > 0) {
+                hourHunger = DateTime.Now.AddSeconds (tiempoPreubaHambre).ToString ();
+                nextHunger = DateTime.Parse (hourHunger);
+            } else if (pointsGiven <= 0) {
+                if (nextLoseLove <= DateTime.Now) {
                     lovePoints--;
-                    pointsTaken++;
-                    Debug.Log ("Puntos de Amor: " + lovePoints);
+                    nextLoseLove = DateTime.Now.AddSeconds (tiempoPerdidaAmor);
                 }
-                nextLoseLove = currentTime.AddSeconds (tiempoPruebaHambre);
             }
         }
 
@@ -65,9 +65,8 @@ public class GameManager: MonoBehaviour {
             lovePoints = 0;
         }
 
-        currentTime = DateTime.Now;
 
-        if (lovePoints == 1 || lovePoints == 5) {
+        /*if (lovePoints == 1 || lovePoints == 5) {
             skinJunior.SetActive (false);
 
             if (animating == false) {
@@ -106,7 +105,7 @@ public class GameManager: MonoBehaviour {
                 AnimationSlime ();
             }
             skinQueen.SetActive (true);
-        }
+        }*/
 
         if (Input.GetKey ("escape")) {
             if (ajustes.activeSelf) {
@@ -134,7 +133,11 @@ public class GameManager: MonoBehaviour {
     }
 
     public bool IsHungry () {
-        return nextHunger < DateTime.Now;
+        return nextHunger <= DateTime.Now;
+    }
+
+    public bool LoseLove () {
+        return nextLoseLove <= DateTime.Now;
     }
 
     public void GaveFood () {
@@ -162,8 +165,9 @@ public class GameManager: MonoBehaviour {
 
     public void AnimationSlime () {
         ogSize = emptySlime.transform.localScale;
-        LeanTween.scale (emptySlime, new Vector3 (0f, 0f, 0f), .25f).setEaseInCubic().setOnComplete (() => {
-            LeanTween.scale (emptySlime, ogSize, .25f).setEaseOutCubic ().setOnComplete (() => {
+        Instantiate (fxTransform, emptySlime.transform.position, Quaternion.identity);
+        LeanTween.scale (emptySlime, new Vector3 (0f, 0f, 0f), .5f).setEaseInCubic().setOnComplete (() => {
+            LeanTween.scale (emptySlime, ogSize, .5f).setEaseOutCubic ().setOnComplete (() => {
                 animating = false;
             });
         });        

@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 33012287538145426}
   - component: {fileID: 23681754851093864}
   - component: {fileID: -2375970371225806503}
-  - component: {fileID: 3890560305681927760}
+  - component: {fileID: -6599380280231711008}
   m_Layer: 0
   m_Name: Rocket05_Yellow
-  m_TagString: Untagged
+  m_TagString: Rubbish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,22 +105,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e5f0ae5b87045c94e98a3a3f91b6dc85, type: 3}
---- !u!54 &3890560305681927760
-Rigidbody:
+--- !u!114 &-6599380280231711008
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884953691250470}
-  serializedVersion: 2
-  m_Mass: 0.5
-  m_Drag: 0.5
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2474d19c3338c43b6b32c24e41f53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxStar: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  fxExplosion: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
+  fxHeart: {fileID: 100006, guid: bcaff8fc36e95584bb27cc3cf7c6cb14, type: 3}
 --- !u!1001 &2289554329405022331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -128,9 +127,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4166148930993752}
     m_Modifications:
+    - target: {fileID: -4558324345053452929, guid: f9317b9c0ec6da94fb5fa57756aaf2de, type: 3}
+      propertyPath: fxStar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -4558324345053452929, guid: f9317b9c0ec6da94fb5fa57756aaf2de, type: 3}
+      propertyPath: fxHeart
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -4558324345053452929, guid: f9317b9c0ec6da94fb5fa57756aaf2de, type: 3}
+      propertyPath: fxExplosion
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1255826965017756, guid: f9317b9c0ec6da94fb5fa57756aaf2de, type: 3}
       propertyPath: m_Name
       value: Rocket07_Pink
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255826965017756, guid: f9317b9c0ec6da94fb5fa57756aaf2de, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4538334001207396, guid: f9317b9c0ec6da94fb5fa57756aaf2de, type: 3}
       propertyPath: m_RootOrder
@@ -206,6 +221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket30_Grey
       objectReference: {fileID: 0}
+    - target: {fileID: 1779306775086844, guid: 9ca2404976c35624bbc4c0777b8e56d4, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4178269330480768, guid: 9ca2404976c35624bbc4c0777b8e56d4, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -262,6 +281,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 2347526615576714835, guid: 9ca2404976c35624bbc4c0777b8e56d4, type: 3}
+      propertyPath: fxStar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2347526615576714835, guid: 9ca2404976c35624bbc4c0777b8e56d4, type: 3}
+      propertyPath: fxHeart
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2347526615576714835, guid: 9ca2404976c35624bbc4c0777b8e56d4, type: 3}
+      propertyPath: fxExplosion
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ca2404976c35624bbc4c0777b8e56d4, type: 3}
 --- !u!4 &3097714298059657174 stripped
@@ -276,9 +307,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4166148930993752}
     m_Modifications:
+    - target: {fileID: -2736383380161835165, guid: 71a986c52a8352245ac0b1d491672874, type: 3}
+      propertyPath: fxStar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -2736383380161835165, guid: 71a986c52a8352245ac0b1d491672874, type: 3}
+      propertyPath: fxHeart
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -2736383380161835165, guid: 71a986c52a8352245ac0b1d491672874, type: 3}
+      propertyPath: fxExplosion
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1359240829146276, guid: 71a986c52a8352245ac0b1d491672874, type: 3}
       propertyPath: m_Name
       value: Rocket15_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359240829146276, guid: 71a986c52a8352245ac0b1d491672874, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4248168915025846, guid: 71a986c52a8352245ac0b1d491672874, type: 3}
       propertyPath: m_RootOrder
@@ -350,9 +397,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4166148930993752}
     m_Modifications:
+    - target: {fileID: -292590467285648545, guid: 3bbc3aa8c1174d84c9b6a5b28d97183f, type: 3}
+      propertyPath: fxStar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -292590467285648545, guid: 3bbc3aa8c1174d84c9b6a5b28d97183f, type: 3}
+      propertyPath: fxHeart
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -292590467285648545, guid: 3bbc3aa8c1174d84c9b6a5b28d97183f, type: 3}
+      propertyPath: fxExplosion
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1244366730725802, guid: 3bbc3aa8c1174d84c9b6a5b28d97183f, type: 3}
       propertyPath: m_Name
       value: Rocket23_Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244366730725802, guid: 3bbc3aa8c1174d84c9b6a5b28d97183f, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4604486965909010, guid: 3bbc3aa8c1174d84c9b6a5b28d97183f, type: 3}
       propertyPath: m_RootOrder
@@ -428,6 +491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket07_Red
       objectReference: {fileID: 0}
+    - target: {fileID: 1156803670215244, guid: 65d7e2f41d2be8e48995bb4070bbeca1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4483867951744272, guid: 65d7e2f41d2be8e48995bb4070bbeca1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -484,6 +551,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 2714890021052314660, guid: 65d7e2f41d2be8e48995bb4070bbeca1, type: 3}
+      propertyPath: fxStar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714890021052314660, guid: 65d7e2f41d2be8e48995bb4070bbeca1, type: 3}
+      propertyPath: fxHeart
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2714890021052314660, guid: 65d7e2f41d2be8e48995bb4070bbeca1, type: 3}
+      propertyPath: fxExplosion
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65d7e2f41d2be8e48995bb4070bbeca1, type: 3}
 --- !u!4 &7653150428666339255 stripped
@@ -498,9 +577,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4166148930993752}
     m_Modifications:
+    - target: {fileID: -1248909146536896377, guid: a534f80ae2ae95a49b699a2445712dca, type: 3}
+      propertyPath: fxStar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -1248909146536896377, guid: a534f80ae2ae95a49b699a2445712dca, type: 3}
+      propertyPath: fxHeart
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -1248909146536896377, guid: a534f80ae2ae95a49b699a2445712dca, type: 3}
+      propertyPath: fxExplosion
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1722931132260312, guid: a534f80ae2ae95a49b699a2445712dca, type: 3}
       propertyPath: m_Name
       value: Rocket20_Orange
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722931132260312, guid: a534f80ae2ae95a49b699a2445712dca, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4780263787240528, guid: a534f80ae2ae95a49b699a2445712dca, type: 3}
       propertyPath: m_RootOrder

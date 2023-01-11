@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 33235421981724962}
   - component: {fileID: 23896218289297812}
   - component: {fileID: -3349252565102552613}
-  - component: {fileID: 1698480140371762824}
+  - component: {fileID: -1248909146536896377}
   m_Layer: 0
   m_Name: Rocket20_Orange
-  m_TagString: Untagged
+  m_TagString: Rubbish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,19 +99,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e675672c9efbede4ba2c974ad7f24bd1, type: 3}
---- !u!54 &1698480140371762824
-Rigidbody:
+--- !u!114 &-1248909146536896377
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1722931132260312}
-  serializedVersion: 2
-  m_Mass: 0.5
-  m_Drag: 0.5
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2474d19c3338c43b6b32c24e41f53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxStar: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
+  fxExplosion: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
+  fxHeart: {fileID: 100006, guid: bcaff8fc36e95584bb27cc3cf7c6cb14, type: 3}
