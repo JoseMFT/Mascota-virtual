@@ -1164,7 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f75df39ed4697145acba4fc1d4eb9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoMuerte: {fileID: 699338944}
+  textoMuerte: {fileID: 699338938}
 --- !u!114 &1592473126
 MonoBehaviour:
   m_ObjectHideFlags: 0

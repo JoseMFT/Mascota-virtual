@@ -47,7 +47,7 @@ public class FallingFood: MonoBehaviour {
                     spawnComida -= Time.deltaTime;
                 } else if (spawnComida <= 0f) {
                     Randomizer ();
-                    Instantiate (comida [posArray], spawnPoint, Quaternion.identity);
+                    Instantiate (comida[posArray], spawnPoint, Quaternion.identity);
                     spawnComida = Random.Range (3f, 6.25f);
                     cuentaComida++;
                 }
@@ -66,7 +66,7 @@ public class FallingFood: MonoBehaviour {
                     spawnBasura -= Time.deltaTime;
                 } else if (spawnBasura <= 0f) {
                     Randomizer ();
-                    Instantiate (basura [posArray], spawnPoint, Quaternion.identity);
+                    Instantiate (basura[posArray], spawnPoint, Quaternion.identity);
                     spawnBasura = Random.Range (3f, 7.33f);
                     cuentaBasura++;
                 }
@@ -77,6 +77,7 @@ public class FallingFood: MonoBehaviour {
             }
 
             mousePos = Input.mousePosition;
+
             Ray moveRay = Camera.main.ScreenPointToRay (mousePos);
             RaycastHit hitInfo;
             slimes.SetActive (false);
@@ -95,11 +96,12 @@ public class FallingFood: MonoBehaviour {
         if (prevSpawnPoint == null) {
             spawnPoint = new Vector3 (Random.Range (-.8f, .8f), 4f, slimes.transform.position.z);
         } else {
+
             if (prevSpawnPoint.x <= 0) {
                 spawnPoint = prevSpawnPoint + new Vector3 (.1f, 0f, 0f);
             } else if (prevSpawnPoint.x > 0) {
                 spawnPoint = prevSpawnPoint + new Vector3 (-.1f, 0f, 0f);
-            } 
+            }
             if (spawnPoint.x <= -.8f) {
                 spawnPoint.x = -.8f;
             } else if (spawnPoint.x >= .8f) {

@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Football : MonoBehaviour
-{
+public class Football: MonoBehaviour {
     Vector3 ogBallPos, ogSlimePos, currentPos;
     public Vector3 mousePos, destiny;
 
     [SerializeField]
     GameObject slimes, fxChoque;
 
-    [SerializeField]
-    public TextMeshProUGUI marcador;
 
     public float speed, slimeSpeed;
-    public int givenPoints = 0, scorePlayer = 0;
-    public bool lanzada = false, canGive = false;
+    public int givenPoints = 0;
+    public bool lanzada = false, canGive = true, stop = false;
     public Renderer render;
     public static Football llamada;
 
@@ -26,15 +23,13 @@ public class Football : MonoBehaviour
         render = gameObject.GetComponent<Renderer> ();
     }
 
-    void Start() {
-        marcador.text = scorePlayer.ToString();
-        ResetBall ();        
+    void Start () {
+        ResetBall ();
     }
 
-    void Update()
-    {
+    void Update () {
         if (lanzada == true) {
-            slimes.transform.rotation = Quaternion.Euler (0f, 0f, Mathf.Acos (destiny.x / Mathf.Sqrt (destiny.x * destiny.x + destiny.y * destiny.y) * (180f / 3.1415f) - 90f));
+            slimes.transform.rotation = Quaternion.Euler (0f, 0f, (Mathf.Acos (destiny.x / Mathf.Sqrt (destiny.x * destiny.x + destiny.y * destiny.y)) * (180f / 3.1415f) - 90f));
             slimes.transform.position = Vector3.MoveTowards (slimes.transform.position, destiny, slimeSpeed * Time.deltaTime);
         }
 
@@ -60,6 +55,7 @@ public class Football : MonoBehaviour
             if (Input.GetMouseButtonDown (0)) {
 
                 if (lanzada != true) {
+                    Instantiate (fxChoque, gameObject.transform.position, Quaternion.identity);
                     speed = Random.Range (8f, 12f);
                     slimeSpeed = Random.Range (3f, 4f);
                     destiny = hitInfo.point;
@@ -72,38 +68,23 @@ public class Football : MonoBehaviour
             currentPos = gameObject.transform.position;
             gameObject.transform.position = Vector3.MoveTowards (currentPos, destiny, speed * Time.deltaTime);
         }
-    }
 
-    void OnCollisionEnter (Collision choque) {
-
-        if (choque.gameObject.tag == "ZonaReset") {
-            gameObject.GetComponent<Collider>().enabled = false;
-            render.enabled = false;
-            ResetBall ();
-
-        } else if (choque.gameObject.tag == "Player") {
-            gameObject.GetComponent<Collider>().enabled = false;
-            render.enabled = false;        
-
+        if (gameObject.transform.position == destiny) {
             if (canGive == true) {
                 GameManager.controlador.lovePoints += 3;
                 givenPoints += 3;
             }
-
-            ResetBall ();
-
-        } else if (choque.gameObject.tag == "ZonaGol") {
-            gameObject.GetComponent<Collider>().enabled = false;
-            scorePlayer++;
             ResetBall ();
         }
     }
 
     public void ResetBall () {
+        stop = false;
         lanzada = false;
-        gameObject.GetComponent<Collider>().enabled = true;
+        gameObject.GetComponent<Collider> ().enabled = true;
         render.enabled = true;
         gameObject.transform.position = ogBallPos;
+        slimes.transform.rotation = Quaternion.Euler (Vector3.zero);
         slimes.transform.position = new Vector3 (ogSlimePos.x, ogSlimePos.y, 6.915f);
     }
 
@@ -111,16 +92,4 @@ public class Football : MonoBehaviour
         x -= x * .1f;
         return x;
     }
-
-    /*public float Hipotenusa (float a, float b) {
-        float h = Mathf.Sqrt (a * a + b * b);
-        Debug.Log (h);
-        return h;
-    }
-
-    public float RadToGrad (float y, float z) {
-        float c = Mathf.Acos (y / Hipotenusa (y, z) * (180f / 3.1415f) - 90f);
-        Debug.Log (c);
-        return c;
-    }*/
 }

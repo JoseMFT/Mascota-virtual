@@ -50,5 +50,4 @@ public class SettingsAndPrefs: MonoBehaviour {
         //PlayerPrefs.SetInt ("puntos", GameManager.controlador.lovePoints);
         PlayerPrefs.SetString ("ultimaConexion", DateTime.Now.ToString ());
     }
-
 }

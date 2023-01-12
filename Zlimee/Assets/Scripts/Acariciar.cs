@@ -4,8 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class Acariciar : MonoBehaviour
-{
+public class Acariciar: MonoBehaviour {
 
     [SerializeField]
     Texture2D cursorTexture;
@@ -21,14 +20,12 @@ public class Acariciar : MonoBehaviour
 
     DateTime mostRecentPet, timeToPet, currentTime;
 
-    void Start()
-    {
-        
+    void Start () {
+
     }
 
 
-    void Update()
-    {
+    void Update () {
 
         if (Application.platform == RuntimePlatform.Android) {
             mousePos = Input.GetTouch (0).position;
@@ -52,40 +49,43 @@ public class Acariciar : MonoBehaviour
 
         Ray moveRay = Camera.main.ScreenPointToRay (mousePos);
         RaycastHit hitInfo;
-        slime.SetActive (false);
 
-        if (Physics.Raycast (moveRay, out hitInfo) == true) {
+        slime.SetActive (true);
 
-            if (hitInfo.collider.gameObject.tag == "Player") {
-                OnMouseEnter ();
+        if (Input.GetMouseButton (0)) {
 
-                if (Input.GetMouseButton(0)) {
+            slime.SetActive (true);
+
+            if (Physics.Raycast (moveRay, out hitInfo) == true) {
+
+                if (hitInfo.collider.gameObject.tag == "Player") {
+                    OnMouseEnter ();
+
                     if (petting == true) {
                         Debug.Log ("Acariciando");
                         tiempoAcaricia -= Time.deltaTime;
                     }
 
-                    if (Input.GetMouseButtonUp(0)) {
-                        tiempoAcaricia = 2f;
-                    }
+                } else {
+                    OnMouseExit ();
                 }
-
-            } else {
-                OnMouseExit ();
             }
 
+            slime.SetActive (false);
+        } else {
+            tiempoAcaricia = 2f;
         }
-        slime.SetActive (true);
+        //slime.SetActive (false);
 
-        if (tiempoAcaricia <= 0f) {            
+        if (tiempoAcaricia <= 0f) {
             tiempoAcaricia = 2f;
 
             if (loveGiven == false) {
                 Instantiate (fxCorazones, slime.transform.position, Quaternion.identity);
                 mostRecentPet = DateTime.Now;
-                lastTimePet = mostRecentPet.ToString();
+                lastTimePet = mostRecentPet.ToString ();
                 timeToPet = DateTime.Now.AddSeconds (7200);
-                nextTimePet = timeToPet.ToString();
+                nextTimePet = timeToPet.ToString ();
                 GameManager.controlador.lovePoints += 10;
                 GameManager.controlador.canBePetted = false;
 
