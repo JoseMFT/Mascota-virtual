@@ -1,0 +1,18 @@
+José María Frías Tejera - MASCOTA VIRTUAL:
+Enlace GitHub: https://github.com/JoseMFT/Mascota-virtual
+
+Versión primera del juego de la mascota virtual, la revisada en clase. Contiene errores, 
+pero más adelante la trbajaré para poder temrinarlo.
+
+~ Bugs: ~
+	- La posicion de la mascota no vuelve a la original tras salir del juego de fútbol
+	- El juego de comida está roto, además de que el botón para salir dle mismo no funciona, 
+por lo que habría que esperar a que terminara el tiempo, o habría que reiniciar el juego.
+	- La mascota desaparece cuando se intenta acariciarla.
+	- Si se entra al juego después de que el slime haya muerto, este no se reinciará, sino que 
+aparecerá con 0 puntos de amor y sin textura, mostrando solo el nombre.
+
+~ Faltan: ~ 
+	- Que el juego calcule el tiempo transucrrido desde la última vez que se entro y reste puntos 
+en base a ello.
+	- Arreglar los bugs.

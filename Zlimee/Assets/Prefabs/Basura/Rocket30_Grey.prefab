@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3fe3bbcc093ebdb4391d77116c4275e0, type: 2}
+  - {fileID: 2100000, guid: 5bb0eb78b01200344b8551f93066ea78, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,3 +114,4 @@ MonoBehaviour:
   fxStar: {fileID: 100006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   fxExplosion: {fileID: 1892078723244562, guid: 46876a2780737ec45a19d62f88e5ce56, type: 3}
   fxHeart: {fileID: 100006, guid: bcaff8fc36e95584bb27cc3cf7c6cb14, type: 3}
+  mascota: {fileID: 0}

@@ -11,7 +11,7 @@ public class GameManager: MonoBehaviour {
     public float lastConnection;
     DateTime currentTime, nextHunger, nextLoseLove, nextPets, nextLoseToPets, canPet;
     string hourHunger;
-    int tiempoHambre = 3, tiempoPerdidaAmor = 1, tiempoCaricias = 2, tiempoSinAcariciar = 24, tiempoPerderCaricias = 1;
+    int tiempoHambre = 3600, tiempoPerdidaAmor = 1200, tiempoCaricias = 7200, tiempoSinAcariciar = 86400, tiempoPerderCaricias = 1800;
     Vector3 ogSize, currentSize, ogPos = new Vector3 (0f, 0f, 5.732f);
     public bool canBePetted = true;
 
@@ -28,8 +28,8 @@ public class GameManager: MonoBehaviour {
 
     private void Awake () {
         ogSize = emptySlime.transform.localScale;
-        lovePoints = PlayerPrefs.GetInt ("puntos", 75);
-        //lovePoints = 65;
+        //lovePoints = PlayerPrefs.GetInt ("puntos", 75);
+        lovePoints = 65;
         lastConnection = PlayerPrefs.GetFloat ("ultimaConexion");
         Debug.Log (lastConnection);
     }
