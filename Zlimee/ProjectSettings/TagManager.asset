@@ -10,6 +10,7 @@ TagManager:
   - Rubbish
   - Food
   - ZonaReset
+  - ZonaGol
   layers:
   - Default
   - TransparentFX

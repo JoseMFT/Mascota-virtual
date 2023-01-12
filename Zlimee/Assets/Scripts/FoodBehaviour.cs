@@ -36,18 +36,18 @@ public class FoodBehaviour : MonoBehaviour
             if (gameObject.tag == "Food") {
                 Instantiate (fxStar, transform.position, Quaternion.identity);
 
-                Hunger.controladorHambre.pointsGiven += 3;
+                GameManager.controlador.pointsGiven += 3;
 
-                if (Hunger.controladorHambre.pointsGiven <= 12) {
+                if (GameManager.controlador.pointsGiven <= 12) {
                     GameManager.controlador.lovePoints += 3;
-                } else if (Hunger.controladorHambre.pointsGiven > 12) {
+                } else if (GameManager.controlador.pointsGiven > 12) {
                     mascota.transform.localScale += .1f * Vector3.one;
                 }
 
             } else if (gameObject.tag == "Rubbish") {
                 Instantiate (fxExplosion, transform.position, Quaternion.identity);
                 Instantiate (fxHeart, transform.position, Quaternion.identity);
-                Hunger.controladorHambre.pointsGiven -= 1;
+                GameManager.controlador.pointsGiven -= 1;
                 GameManager.controlador.lovePoints -= 1;
             }
             Destroy (gameObject);            

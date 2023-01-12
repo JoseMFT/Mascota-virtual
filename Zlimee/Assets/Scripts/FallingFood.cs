@@ -9,6 +9,7 @@ public class FallingFood: MonoBehaviour {
     float spawnBasura, spawnComida, timeElapsed = 30f;
     public Vector3 spawnPoint, prevSpawnPoint;
     Vector3 slimeSize;
+    Vector2 mousePos;
 
     List<GameObject> comida;
     List<GameObject> basura;
@@ -17,13 +18,13 @@ public class FallingFood: MonoBehaviour {
     [SerializeField]
     GameObject comidaDonut, comidaPimiento, comidaCurry, comidaSoda, comidaPiruleta,
         comidaTomate, comidaUdon, coheteRosa, coheteAzul, coheteVerde, coheteGris,
-        coheteAmarillo, coheteNaranja, coheteRojo, suelo, slimes, canvasFallingFood, canvasMenu, canvasTransicion;
+        coheteAmarillo, coheteNaranja, coheteRojo, slimes, ajustes;
 
     [SerializeField]
     TextMeshProUGUI contadorTiempo;
 
     void Awake () {
-        canvasMenu.SetActive (false);
+
         slimeSize = slimes.transform.localScale;
         comida = new List<GameObject> { comidaDonut, comidaPimiento, comidaCurry, comidaSoda, comidaPiruleta, comidaTomate, comidaUdon };
         basura = new List<GameObject> { coheteRosa, coheteAzul, coheteVerde, coheteGris, coheteAmarillo, coheteNaranja, coheteRojo };
@@ -34,45 +35,57 @@ public class FallingFood: MonoBehaviour {
         spawnBasura = Random.Range (3f, 7.33f);
     }
 
-    void Start () {
-        suelo.SetActive (false);
-    }
 
     void Update () {
 
-        timeElapsed -= Time.deltaTime;
-        contadorTiempo.text = ((int) Mathf.Floor (timeElapsed)).ToString () + " sec";
+        if (ajustes.activeSelf == false) {
+            timeElapsed -= Time.deltaTime;
+            contadorTiempo.text = ((int) Mathf.Floor (timeElapsed)).ToString () + " sec";
 
-        if (cuentaComida != 4) {
-            if (spawnComida > 0f) {
-                spawnComida -= Time.deltaTime;
-            } else if (spawnComida <= 0f) {
-                Randomizer ();
-                Instantiate (comida[posArray], spawnPoint, Quaternion.identity);
-                spawnComida = Random.Range (3f, 6.25f);
-                cuentaComida++;
+            if (cuentaComida != 4) {
+                if (spawnComida > 0f) {
+                    spawnComida -= Time.deltaTime;
+                } else if (spawnComida <= 0f) {
+                    Randomizer ();
+                    Instantiate (comida [posArray], spawnPoint, Quaternion.identity);
+                    spawnComida = Random.Range (3f, 6.25f);
+                    cuentaComida++;
+                }
             }
-        }
-        
-        if (timeElapsed <= 0f) {
-            //canvasTransicion.SetActive (true);
-            canvasMenu.SetActive (true);
-            slimes.transform.rotation = Quaternion.Euler (Vector3.zero);
-            slimes.transform.localScale = slimeSize;
-            slimes.transform.position = Vector3.zero;
-            suelo.SetActive (true);
-            gameObject.SetActive (false);
-        }
 
-        if (cuentaBasura != 3) {
-            if (spawnBasura > 0f) {
-                spawnBasura -= Time.deltaTime;
-            } else if (spawnBasura <= 0f) {
-                Randomizer ();
-                Instantiate (basura[posArray], spawnPoint, Quaternion.identity);
-                spawnBasura = Random.Range (3f, 7.33f);
-                cuentaBasura++;
+            if (timeElapsed <= 0f) {
+                slimes.transform.rotation = Quaternion.Euler (Vector3.zero);
+                slimes.transform.localScale = slimeSize;
+                slimes.transform.position = Vector3.zero;
+
+                gameObject.SetActive (false);
             }
+
+            if (cuentaBasura != 3) {
+                if (spawnBasura > 0f) {
+                    spawnBasura -= Time.deltaTime;
+                } else if (spawnBasura <= 0f) {
+                    Randomizer ();
+                    Instantiate (basura [posArray], spawnPoint, Quaternion.identity);
+                    spawnBasura = Random.Range (3f, 7.33f);
+                    cuentaBasura++;
+                }
+            }
+
+            if (Application.platform == RuntimePlatform.Android) {
+                mousePos = Input.GetTouch (0).position;
+            }
+
+            mousePos = Input.mousePosition;
+            Ray moveRay = Camera.main.ScreenPointToRay (mousePos);
+            RaycastHit hitInfo;
+            slimes.SetActive (false);
+
+            if (Physics.Raycast (moveRay, out hitInfo) == true) {
+                slimes.transform.position = new Vector3 (hitInfo.point.x, slimes.transform.position.y, slimes.transform.position.z);
+                //hitInfo.point + Vector3.up * cube.transform.localScale.y / 2f;
+            }
+            slimes.SetActive (true);
         }
     }
 
@@ -80,7 +93,7 @@ public class FallingFood: MonoBehaviour {
         prevSpawnPoint = spawnPoint;
         posArray = (int) Mathf.Floor (Random.Range (0, 6));
         if (prevSpawnPoint == null) {
-            spawnPoint = new Vector3 (Random.Range (-.8f, .8f), 4f, .743f);
+            spawnPoint = new Vector3 (Random.Range (-.8f, .8f), 4f, slimes.transform.position.z);
         } else {
             if (prevSpawnPoint.x <= 0) {
                 spawnPoint = prevSpawnPoint + new Vector3 (.1f, 0f, 0f);

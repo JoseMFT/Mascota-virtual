@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/InitialMenu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/FeedGame.unity
-    guid: de532737845385a45b7d88c5421e5c87
-  - enabled: 1
-    path: Assets/Scenes/PlayGame.unity
-    guid: b02887430096fad4895c7c8be51b2227
+    path: Assets/Scenes/DeathScene.unity
+    guid: 367d7f01515870948a6c356820118542
   m_configObjects: {}

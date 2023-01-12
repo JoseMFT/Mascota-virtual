@@ -22,9 +22,6 @@ public class SettingsAndPrefs: MonoBehaviour {
     [SerializeField]
     CanvasGroup canvasAlphaColor;
 
-    [SerializeField]
-    GameManager controlador;
-
     Vector3 canvasSize;
 
 
